@@ -1,8 +1,9 @@
 
 # change the following according to your student numbers
-echo "1001234,1003456"
+echo "1004584, 1004618, 1003809"
 
 # change the following according to your environment
+# you can probably gitignore this after first import since your own hdfs would be different
 hdfs_namenode="localhost"
 
 # don't change following
