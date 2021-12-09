@@ -10,7 +10,7 @@ hdfs_nn = sys.argv[1]
 
 spark = SparkSession.builder.appName("Assigment 2 Question 4").getOrCreate()
 # YOUR CODE GOES BELOW
-sc = spark.SparkContext
+# sc = spark.SparkContext
 
 df = spark.read.option("header", True).csv("hdfs://%s:9000/assignment2/part1/input/" % hdfs_nn)
 df1 = df.select("City", explode("Cuisine")).groupby("Cuisine").count().show()

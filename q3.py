@@ -12,7 +12,7 @@ hdfs_nn = sys.argv[1]
 
 spark = SparkSession.builder.appName("Assigment 2 Question 3").getOrCreate()
 # YOUR CODE GOES BELOW
-sc = spark.SparkContext
+# sc = spark.SparkContext
 
 
 def foreach(record):
