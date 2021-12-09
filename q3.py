@@ -12,7 +12,7 @@ hdfs_nn = sys.argv[1]
 
 spark = SparkSession.builder.appName("Assigment 2 Question 3").getOrCreate()
 # YOUR CODE GOES BELOW
-# sc = spark.SparkContext
+sc = spark.sparkContext
 
 
 def foreach(record):
@@ -38,7 +38,8 @@ for x in out_data:
     for y in x:
         d.append(y)
 
-df_new = spark.createDataFrame(d, ["ID_TA", "review", "date"]).show()
+df_new = spark.createDataFrame(d, ["ID_TA", "review", "date"])
+# df_new.show()
 
 df_new.write.option("header", True).csv("hdfs://%s:9000/assignment2/output/question3" % hdfs_nn)
 # out_df.saveAsTextFile("hdfs://%s:9000/assignment2/output/question1" % (hdfs_nn))
