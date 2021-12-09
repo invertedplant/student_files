@@ -16,7 +16,7 @@ sc = spark.sparkContext
 df = spark.read.option("header", True).csv("hdfs://%s:9000/assignment2/part1/input/" % hdfs_nn)
 # df1 = df.select("City", explode("Cuisine Style")).groupby("Cuisine Style").count()
 df1 = df.select("City", explode(split(col("Cuisine Style"), ",")).alias("Cuisine Style"))\
-    .groupby("Cuisine Style").count()
-# df1.show()
+    .groupby("City", "Cuisine Style").count()
+df1.show()
 
 df1.write.option("header", True).csv("hdfs://%s:9000/assignment2/output/question4" % hdfs_nn)
