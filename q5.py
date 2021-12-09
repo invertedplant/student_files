@@ -1,7 +1,7 @@
 import ast
 import sys
 from pyspark.sql import SparkSession
-from pyspark.sql import funcions as F
+from pyspark.sql import functions as F
 from operator import add
 # you may add more import if you need to
 
@@ -18,7 +18,7 @@ df = df.select("movie_id", "title", "cast") # from the hint
 def func(x):
     movie_id = x[0]
     title = x[1]
-    cast = ast.literal_eval(record[2])
+    cast = ast.literal_eval(x[2])
     name_pairs = []
 
     for i in cast:
