@@ -15,7 +15,7 @@ spark = SparkSession.builder.appName("Assigment 2 Question 3").getOrCreate()
 sc = spark.sparkContext
 
 
-def foreach(record):
+def for_each(record):
     record_l = ast.literal_eval(record[1])
     idx = record[0]
     reviews = record_l[0]
@@ -30,7 +30,7 @@ def foreach(record):
 df = spark.read.option("header", True).csv("hdfs://%s:9000/assignment2/part1/input/" % hdfs_nn)
 r = df.select("ID_TA", "Reviews")
 rdd = r.rdd.map(lambda ls: [ls[0], ls[1]])
-output = rdd.map(foreach)
+output = rdd.map(for_each)
 out_data = list(output.collect())
 
 d = []
