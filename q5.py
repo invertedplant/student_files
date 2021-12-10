@@ -29,8 +29,10 @@ def func(x):
 
     # check the name pairs
     for i in range(len(name_pairs)):
-        for j in range(i+1, len(name_pairs)):
-            if name_pairs[i] > name_pairs[j]:
+        for j in range(i + 1, len(name_pairs)):
+            if i == j:
+                pass
+            elif name_pairs[i] > name_pairs[j]:
                 result.append((movie_id, title, name_pairs[i], name_pairs[j]))
             else:
                 result.append((movie_id, title, name_pairs[j], name_pairs[i]))
